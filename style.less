@@ -1,0 +1,492 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:wght@400;700&display=swap');
+
+// PRIMARY COLORS
+@VeryDarkBlue :hsl(243, 87%, 12%);
+@DesaturatedBlue: hsl(238, 22%, 44%);
+
+// ACCENT COLORS
+@BrightBlue: hsl(224, 93%, 58%);
+@ModerateCyan: hsl(170, 45%, 43%);
+
+// NUETRAL COLORS
+@LightGrayishBlue: hsl(240, 75%, 98%);
+@LightGray: hsl(0, 0%, 75%);
+
+// FONT COMPONENT
+.raleway-1() {
+	font-family: 'Raleway', sans-serif;
+	font-weight: 400;
+}
+
+.raleway-2() {
+	font-family: 'Raleway', sans-serif;
+	font-weight: 700;
+}
+
+.opensans() {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+}
+
+// GLOBAL VARIABLES
+@GlobalInlinePadding: 5rem;
+@GlobalInlinePaddingMobile: 1rem;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+nav {
+	min-height: 5rem;
+	width: 100%;
+	// background-color: red;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-inline: @GlobalInlinePadding;
+	padding-top: 3rem;
+
+	@media screen and (max-width: 800px) {
+		padding-inline: @GlobalInlinePaddingMobile;
+		padding-top: 1rem;
+	}
+
+	img {
+		cursor: pointer;
+
+		@media screen and (max-width: 800px) {
+			width: 30%;
+		}
+	}
+
+	ul {
+		display: flex;
+		flex-direction: row;
+		list-style: none;
+		gap: 3rem;
+		.raleway-2();
+		color: @DesaturatedBlue;
+
+		@media screen and (max-width: 800px) {
+			gap: 1rem;
+		}
+
+		li {
+			cursor: pointer;
+
+			&:hover {
+				color: @VeryDarkBlue;
+			}
+		}
+	}
+}
+
+#section1 {
+	display: flex;
+	align-items: center;
+	gap: 4rem;
+	padding-inline: @GlobalInlinePadding;
+	padding-top: @GlobalInlinePadding;
+	padding-bottom: @GlobalInlinePadding*2;
+
+	@media screen and (max-width: 800px) {
+		flex-direction: column-reverse;
+		padding-inline: @GlobalInlinePaddingMobile;
+		padding-bottom: @GlobalInlinePadding;
+	}
+
+	.textContainer {
+		.raleway-1();
+		line-height: 1.5;
+		color: @VeryDarkBlue;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+
+		h1 {
+			font-size: 2.5rem;
+			@media screen and (max-width: 800px) {
+				font-size: 1.5rem;
+				text-align: center;
+			}
+		}
+
+		p {
+			font-size: 1.2rem;
+
+			@media screen and (max-width: 800px) {
+				font-size: 1rem;
+				text-align: center;
+			}
+		}
+
+		.InputContainer {
+			display: flex;
+			gap: 1rem;
+			position: relative;
+
+			@media screen and (max-width: 800px) {
+				flex-direction: column;
+			}
+
+			input {
+				width: 55%;
+				padding: 1rem;
+				border-radius: .3rem;
+				font-size: 1.1rem;
+				border: none;
+				outline: .05rem solid @VeryDarkBlue; //change color to crimson via JS if wrong input
+
+				&::placeholder {
+					color: @LightGray;
+				}
+
+				@media screen and (max-width: 800px) {
+					padding: .8rem;
+					font-size: 1rem;
+					width: 100%;
+				}
+			}
+
+			button {
+				width: 33%;
+				padding: 1rem;
+				border-radius: .3rem;
+				font-size: 1.1rem;
+				background-color: @BrightBlue;
+				border: none;
+				cursor: pointer;
+				color: @LightGrayishBlue;
+				.raleway-2();
+
+				&:hover {
+					background-color: lighten(@BrightBlue, 10%);
+				}
+
+				@media screen and (max-width: 800px) {
+					padding: .8rem;
+					font-size: 1rem;
+					width: 100%;
+				}
+			}
+
+			#errorMsg {
+				display: none; //hide by default, show via JS
+				position: absolute;
+				bottom: -2rem;
+				color: crimson;
+			}
+		}
+	}
+
+	img {
+		width: 50%;
+
+		@media screen and (max-width: 800px) {
+			width: 100%;
+		}
+	}
+}
+
+.curveImgContainer {
+	background-image: url(images/bg-curve-desktop.svg);
+	background-size: 100% 100%;
+	height: 114px;
+	background-repeat: no-repeat;
+
+	@media screen and (max-width: 800px) {
+		background-image: url(images/bg-curve-mobile.svg);
+		height: 53px;
+	}
+}
+
+#section2 {
+	display: flex;
+	gap: 4rem;
+	padding-inline: @GlobalInlinePadding;
+	padding-top: @GlobalInlinePadding;
+	padding-bottom: @GlobalInlinePadding;
+	background-color: @LightGrayishBlue;
+
+	@media screen and (max-width: 800px) {
+		flex-direction: column-reverse;
+		padding-inline: @GlobalInlinePaddingMobile;
+	}
+
+	.textContainer {
+		.raleway-1();
+		line-height: 1.5;
+		color: @VeryDarkBlue;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+
+		h2 {
+			font-size: 2.5rem;
+			@media screen and (max-width: 800px) {
+				font-size: 1.2rem;
+				text-align: center;
+			}
+		}
+
+		p {
+			font-size: 1.2rem;
+
+			@media screen and (max-width: 800px) {
+				font-size: 1rem;
+			}
+		}
+
+		a {
+			display: flex;
+			font-size: 1.2rem;
+			align-items: center;
+			gap: .5rem;
+			justify-content: flex-start;
+			color: @ModerateCyan;
+			cursor: pointer;
+			text-decoration: underline;
+			text-underline-offset: .5rem;
+
+			@media screen and (max-width: 800px) {
+				justify-content: center;
+			}
+
+			&:hover {
+				color: lighten(@ModerateCyan, 20%);
+			}
+
+			img {
+				width: 1.5rem;
+			}
+		}
+
+		.cardContainer {
+			width: 58%;
+			background-color: white;
+			padding: 2rem;
+			border-radius: .3rem;
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+			box-shadow: 0 0 1rem .1rem rgba(0, 0, 0, 0.1);
+			margin-top: 3rem;
+
+			@media screen and (max-width: 800px) {
+				width: 100%;
+			}
+
+			.quote {
+				width: 1.5rem;
+			}
+
+			p {
+				.opensans();
+				font-size: 1rem;
+				line-height: 1.5;
+			}
+
+			.userContainer {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				img {
+					width: 3rem;
+					border-radius: 50%;
+				}
+			}
+
+		}
+	}
+
+
+	img {
+		width: 45%;
+		height: fit-content;
+	
+		@media screen and (max-width: 800px) {
+			width: 100%;
+		}
+	}
+
+	
+}
+
+#section3 {
+	padding-inline: @GlobalInlinePadding;
+	padding-top: @GlobalInlinePadding;
+	padding-bottom: @GlobalInlinePadding;
+	background-color: @DesaturatedBlue;
+	display: flex;
+	gap: 19rem;
+
+	@media screen and (max-width: 800px) {
+		flex-direction: column;
+		gap: 2rem;
+		padding-inline: @GlobalInlinePaddingMobile +2rem;
+	}
+
+	.textContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		color: @LightGrayishBlue;
+		.opensans();
+
+		h2 {
+			font-size: 2rem;
+
+			@media screen and (max-width: 800px) {
+				font-size: 1.5rem;
+				text-align: center;
+			}
+		}
+
+		p {
+			font-size: 1rem;
+			line-height: 1.5;
+
+			@media screen and (max-width: 800px) {
+				text-align: center;
+			}
+		}
+	}
+
+	.inputContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+
+		@media screen and (max-width: 800px) {
+			align-items: center;
+		}
+
+		input {
+			width: 35rem;
+			padding: 1rem;
+			border-radius: .1rem;
+			font-size: 1rem;
+			border: none;
+			outline: .05rem solid transparent; //change color to crimson via JS if wrong input
+
+			&::placeholder {
+				color: @LightGray;
+			}
+
+			@media screen and (max-width: 800px) {
+				width: 80%;
+			}
+		}
+
+		#errorMsg2 {
+			display: none; //hide by default, show via JS
+			color: @LightGrayishBlue;
+			.opensans();
+			font-size: .9rem;
+		}
+
+		button {
+			.raleway-2();
+			width: 40%;
+			padding: 1rem;
+			border-radius: .1rem;
+			font-size: 1rem;
+			background-color: @BrightBlue;
+			border: none;
+			cursor: pointer;
+			color: @LightGrayishBlue;
+
+			&:hover {
+				background-color: lighten(@BrightBlue, 10%);
+			}
+
+			@media screen and (max-width: 800px) {
+				width: 80%;
+			}
+		}
+	}
+}
+
+footer {
+	padding-inline: @GlobalInlinePadding;
+	padding-top: @GlobalInlinePadding;
+	padding-bottom: @GlobalInlinePadding;
+	background-color: @VeryDarkBlue;
+	color: @LightGrayishBlue;
+	.opensans();
+
+	@media screen and (max-width: 800px) {
+		padding-inline: @GlobalInlinePaddingMobile + 2rem;
+	}
+
+	.footerContainer {
+		display: flex;
+		justify-content: space-between;
+		padding-top: 2rem;
+
+		@media screen and (max-width: 800px) {
+			flex-direction: column;
+			gap: 3rem;
+		}
+
+		.contact {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+
+			p {
+				display: flex;
+				gap: 1rem;
+
+				img {
+					height: 1rem;
+					width: 1.2rem;
+				}
+			}
+		}
+
+		ul {
+			list-style: none;
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+
+			li {
+				cursor: pointer;
+				width: max-content;
+
+				&:hover {
+					color: lighten(@BrightBlue, 20%);
+				}
+			}
+		}
+
+		.socials {
+			display: flex;
+			gap: 1rem;
+			align-items: flex-start;
+
+			@media screen and (max-width: 800px) {
+				justify-content: center;
+			}
+
+			i {
+				border: .1rem solid @LightGrayishBlue;
+				padding: .5rem;
+				width: 2.2rem;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border-radius: 50%;
+				cursor: pointer;
+
+				&:hover {
+					color: lighten(@BrightBlue, 20%);
+					border: .1rem solid lighten(@BrightBlue, 20%);
+				}
+			}
+		}
+	}
+}
